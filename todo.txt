@@ -1,0 +1,14 @@
+Goals:
+ * clear error messages on submit
+ * alpha validation
+ * more accurate numeric validation
+ * password validation (matching passwords)
+ * regex validation
+ * phone number validation
+ * credit card number validation
+ * checkbox validation
+ * date validation
+ * do not validate fields that do not also have a 'required' parameter
+ * better error response (pass selector to fields with errors)
+ * settings:
+    * error class (auto append class to a field with an error)

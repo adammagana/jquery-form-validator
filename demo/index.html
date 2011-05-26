@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>Form Validation Demo</title>
+    <meta name="author" content="Adam Magaña">
+</head>
+<body>
+    <h1>Javascript Form Validation</h1>
+    <p>A jQuery extension...</p>
+    <form id="test_form" type="POST" action="">
+        <p><label for="email">Email</label><input type="text" data-validate="email" name="email" value="" id="email" /></p>
+        <p><label for="url">URL</label><input type="text" data-validate="url" name="url" value="" id="url" /></p>
+        <p><button type="submit">Validate!</button></p>
+    </form>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+    <script src="../easy-form-validator.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#test_form').submit(function(e){
+                e.preventDefault();
+                
+                var isValid = $(this).validate();
+                
+                if(isValid) {
+                    alert("Validation SUCCESS.");
+                }else {
+                    alert("Validation FAILURE");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
