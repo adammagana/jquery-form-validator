@@ -4,6 +4,16 @@
  * @author Adam Magaña
  * @since May 25th, 2011
  * @see http://docs.jquery.com/Plugins/Authoring
+ * 
+ * Needs:
+ * alpha validation
+ * more accurate numeric validation
+ * password validation (matching passwords)
+ * regex validation
+ * phone number validation
+ * credit card number validation
+ * checkbox validation
+ * date validation
  */
 (function($){
     $.fn.validate = function() {
