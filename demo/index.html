@@ -9,7 +9,7 @@
 <body>
     <h1>Javascript Form Validation</h1>
     <p>A jQuery extension...</p>
-    <form id="test_form" type="POST" action="">
+    <form id="test_form" type="post" action="">
         <p><label for="email">Email</label><input type="text" data-validate="email" name="email" value="" id="email" /></p>
         <p><label for="url">URL</label><input type="text" data-validate="url" name="url" value="" id="url" /></p>
         <p><button type="submit">Validate!</button></p>
@@ -19,16 +19,18 @@
     <script src="../easy-form-validator.js"></script>
     <script>
         $(document).ready(function(){
+            //Example for adding a custom validation rule
+            /*
+            $.validator.validationHooks['custom'] = function(val) {
+                return (val.trim() !== '');
+            };
+            */
+            
             $('#test_form').submit(function(e){
                 e.preventDefault();
                 
-                var isValid = $(this).validate();
-                
-                if(isValid) {
-                    alert("Validation SUCCESS.");
-                }else {
-                    alert("Validation FAILURE");
-                }
+                var response = $(this).validate();
+                console.log(response);
             });
         });
     </script>
