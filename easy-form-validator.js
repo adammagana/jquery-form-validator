@@ -33,6 +33,9 @@
         });
     };
     
+    /**
+    * Object Literal that defines the validation types and their corresponding functions
+    */
     $.fn.validate.validationHooks = {
         required:function(val) {
             return true;
