@@ -1,6 +1,14 @@
 # Easy HTML Form Validator
 *A jQuery Plugin*
 
+##Description
+**Author**: Adam Magana <adammagana@gmail.com>  
+**Last Edit**: June 7th, 2011  
+**Version**: 0.0.1
+
+##Usage
+* Coming Soon!
+
 ## License 
 
 (The MIT License)
