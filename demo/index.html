@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -10,8 +10,10 @@
     <h1>Javascript Form Validation</h1>
     <p>A jQuery extension...</p>
     <form id="test_form" type="post" action="">
-        <p><label for="email">Email</label><input type="text" data-validate="email" name="email" value="" id="email" /></p>
-        <p><label for="url">URL</label><input type="text" data-validate="url" name="url" value="" id="url" /></p>
+        <p><label for="name">Name: </label><input type="text" data-validate="required" name="name" value="" id="name" /></p>
+        <p><label for="email">Email: </label><input type="text" data-validate="email" name="email" value="" id="email" /></p>
+        <p><label for="url">URL: </label><input type="text" data-validate="url" name="url" value="" id="url" /></p>
+        <p><label for="age-check">I verify that this information is correct: </label><input type="checkbox" data-validate="required" name="age-check" id="age-check" /></p>
         <p><button type="submit">Validate!</button></p>
     </form>
     
@@ -19,18 +21,9 @@
     <script src="../easy-form-validator.js"></script>
     <script>
         $(document).ready(function(){
-            //Example for adding a custom validation rule
-            /*
-            $.validator.validationHooks['custom'] = function(val) {
-                return (val.trim() !== '');
-            };
-            */
-            
             $('#test_form').submit(function(e){
                 e.preventDefault();
-                
-                var response = $(this).validate();
-                console.log(response);
+                $(this).validate();
             });
         });
     </script>

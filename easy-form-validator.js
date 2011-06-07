@@ -8,28 +8,59 @@
 (function($){
     
     $.fn.validate = function(options) {
-        
+        /**
+        * Object Literal that defines the default settings of the plugin
+        */
         $.fn.validate.defaults = {
-            //default settings go here
+            invalid:function() {
+                //console.log($(this).attr('name')+' did not validate!');
+            },
+            success:function() {
+                console.log("The FORM is VALID!");
+            },
+            error:function(errors) {
+                console.log("The FORM is NOT VALID!");
+                console.log(errors);
+            }
         };
-
+        
+        /**
+        * Merge the $.fn.validate.defaults with any user-defined settings
+        */
         var settings = $.extend({}, $.fn.validate.defaults, options);
         
         return this.each(function(){
+            var invalidFields = [];
+            
             $(this).find('*[data-validate]').each(function() {
                 var validation = $(this).data('validate').split(/\s/);
                 
                 for(var i=0, j=validation.length; i<j; i++) {
                     var current = validation[i];
                     if(current in $.fn.validate.validationHooks && typeof $.fn.validate.validationHooks[current] === "function") {
+                        /**
+                        * If the field passes the validation then pass
+                        * Else call the settings.invalid function
+                        */
                         if(true === $.fn.validate.validationHooks[current].apply(this, [$(this).val()])) {
-                            console.log($(this).attr('name')+' validated!');
+                            //pass for now
                         }else {
-                            console.log($(this).attr('name')+' did not validate!');
+                            invalidFields.push(this);
+                            settings.invalid.apply(this);
                         }
                     }
                 }
             });
+            
+            /**
+            * If errors were not found then call the settings.success function
+            * Else call the settings.error function
+            */ 
+            if(invalidFields.length === 0) {
+                settings.success();
+            }else {
+                settings.error(invalidFields);
+            }
         });
     };
     
@@ -38,7 +69,24 @@
     */
     $.fn.validate.validationHooks = {
         required:function(val) {
-            return true;
+            //Check the type of the input
+            switch(this.tagName) {
+                case 'INPUT':
+                    if($(this).attr('type') == 'text') {
+                        $.trim(val);
+                        if(val === '') {
+                            return false;
+                        }else {
+                            return true;
+                        }
+                    }else if($(this).attr('type') == 'checkbox') {
+                        return $(this).is(':checked') ? true : false;
+                    }
+                    break;
+                default:
+                    return false;
+                    break;
+            }
         },
         alpha:function(val) {
             return true;
