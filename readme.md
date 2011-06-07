@@ -2,7 +2,7 @@
 *A jQuery Plugin*
 
 ##Description
-**Author**: Adam Magana <adammagana@gmail.com>  
+**Author**: Adam Magana &lt;adammagana@gmail.com&gt;  
 **Last Edit**: June 7th, 2011  
 **Version**: 0.0.1
 
@@ -13,7 +13,7 @@
 
 (The MIT License)
 
-Copyright (c) 2011 Adam Magaña &lt;adam@drund.com&gt;
+Copyright (c) 2011 Adam Magaña &lt;adammagana@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
