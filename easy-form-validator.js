@@ -13,14 +13,13 @@
         */
         $.fn.validate.defaults = {
             invalid:function() {
-                //console.log($(this).attr('name')+' did not validate!');
+                //Handle an error on an invididual field
             },
             success:function() {
-                console.log("The FORM is VALID!");
+                //Handle form success
             },
             error:function(errors) {
-                console.log("The FORM is NOT VALID!");
-                console.log(errors);
+                //Handle form error
             }
         };
         
@@ -33,6 +32,8 @@
             var invalidFields = [];
             
             $(this).find('*[data-validate]').each(function() {
+                $(this).removeClass('error');
+                
                 var validation = $(this).data('validate').split(/\s/);
                 
                 for(var i=0, j=validation.length; i<j; i++) {
@@ -57,9 +58,9 @@
             * Else call the settings.error function
             */ 
             if(invalidFields.length === 0) {
-                settings.success();
+                settings.success.apply(this);
             }else {
-                settings.error(invalidFields);
+                settings.error.apply(this, [invalidFields]);
             }
         });
     };
