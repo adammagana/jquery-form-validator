@@ -93,7 +93,7 @@
             return true;
         },
         numeric:function(val) {
-            return true;
+            return (val - 0) == val && val.length > 0;
         },
         email:function(val) {
             var regexp = /^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/;

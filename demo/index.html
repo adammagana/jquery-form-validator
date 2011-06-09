@@ -3,10 +3,15 @@
 <head>
     <meta charset="utf-8">
     
-    <title>jQuery Validation Plugin</title>
+    <title>jQuery Form Validation Plugin</title>
     <meta name="author" content="Adam Magaña">
     
     <style type="text/css">
+        .helper{
+            margin-left:7px;
+            font-size:11px;
+            font-style:italic;
+        }
         input[type='text'].error{
             background-color:#ffc0ad;
         }
@@ -15,9 +20,10 @@
 <body>
     <h1>jQuery Validation Plugin</h1>
     <form id="test_form" type="post" action="">
-        <p><label for="name">Name: </label><input type="text" data-validate="required" name="name" value="" id="name" /></p>
-        <p><label for="email">Email: </label><input type="text" data-validate="email" name="email" value="" id="email" /></p>
-        <p><label for="url">URL: </label><input type="text" data-validate="url" name="url" value="" id="url" /></p>
+        <p><label for="name">Full Name: </label><input type="text" data-validate="required" name="name" value="" id="name" /><span class="helper">*Required validation</span></p>
+        <p><label for="email">Email Address: </label><input type="text" data-validate="email" name="email" value="" id="email" /><span class="helper">*Email validation</span></p>
+        <p><label for="url">Website: </label><input type="text" data-validate="url" name="url" value="" id="url" /><span class="helper">*URL validation</span></p>
+        <p><label for="fav_num">Favorite Number: </label><input type="text" data-validate="numeric" name="fav_num" value="" id="fav_num" /><span class="helper">*Numeric validation</span></p>
         <p><label for="age-check">I verify that this information is correct: </label><input type="checkbox" data-validate="required" name="age-check" id="age-check" /></p>
         <p><button type="submit">Validate!</button></p>
     </form>
