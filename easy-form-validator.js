@@ -12,56 +12,61 @@
         * Object Literal that defines the default settings of the plugin
         */
         $.fn.validate.defaults = {
-            invalid:function() {
-                //Handle an error on an invididual field
+            fieldError:function() {
+                //Handles an error on an invididual field
             },
             success:function() {
-                //Handle form success
+                //Handles a success on an entire form
             },
             error:function(errors) {
-                //Handle form error
+                //Handles an error on an entire form
             }
         };
         
         /**
-        * Merge the $.fn.validate.defaults with any user-defined settings
+        * Ternary assignment to 'settings':
+        * 
+        * If 'options' variable is an object then merge it with '$.fn.validate.defaults'
+        * Else return '$.fn.validate.defaults'
         */
-        var settings = $.extend({}, $.fn.validate.defaults, options);
+        var settings = (typeof options === "object") ? $.extend({}, $.fn.validate.defaults, options) : $.fn.validate.defaults;
         
-        return this.each(function(){
-            var invalidFields = [];
-            
-            $(this).find('*[data-validate]').each(function() {
-                $(this).removeClass('error');
-                
-                var validation = $(this).data('validate').split(/\s/);
-                
-                for(var i=0, j=validation.length; i<j; i++) {
-                    var current = validation[i];
-                    if(current in $.fn.validate.validationHooks && typeof $.fn.validate.validationHooks[current] === "function") {
-                        /**
-                        * If the field passes the validation then pass
-                        * Else call the settings.invalid function
-                        */
-                        if(true === $.fn.validate.validationHooks[current].apply(this, [$(this).val()])) {
-                            //pass for now
-                        }else {
-                            invalidFields.push(this);
-                            settings.invalid.apply(this);
+        return this.each(function() {
+            //Automatically bind a submit event to each form
+            $(this).submit(function(e){
+                var invalidFields = [];
+                $(this).find('*[data-validate]').each(function() {
+                    $(this).removeClass('error');
+                    
+                    var validation = $(this).data('validate').split(/\s/);
+                    for(var i=0, j=validation.length; i<j; i++) {
+                        var current = validation[i];
+                        if(current in $.fn.validate.validationHooks && typeof $.fn.validate.validationHooks[current] === "function") {
+                            /**
+                            * If the field passes the validation then pass
+                            * Else call the settings.fieldError function
+                            */
+                            if(true === $.fn.validate.validationHooks[current].apply(this, [$(this).val()])) {
+                                //pass for now
+                            }else {
+                                invalidFields.push(this);
+                                settings.fieldError.apply(this);
+                            }
                         }
                     }
+                });
+
+                /**
+                * If errors were not found then call the 'settings.success' function
+                * Else prevent the form from submitting and call the 'settings.error' function
+                */ 
+                if(invalidFields.length === 0) {
+                    settings.success.apply(this);
+                }else {
+                    e.preventDefault();
+                    settings.error.apply(this, [invalidFields]);
                 }
             });
-            
-            /**
-            * If errors were not found then call the settings.success function
-            * Else call the settings.error function
-            */ 
-            if(invalidFields.length === 0) {
-                settings.success.apply(this);
-            }else {
-                settings.error.apply(this, [invalidFields]);
-            }
         });
     };
     

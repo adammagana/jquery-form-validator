@@ -9,51 +9,44 @@
 ##Usage
 
 **Basic usage:**
-HTML:
 
 The 'data-validate' attribute is required
-<form>
-    <input type="text" data-validate="required" name="required-validation" />
-    <input type="text" data-validate="email" name="email-validation" />
-    <input type="text" data-validate="url" name="url-validation" />
-    <input type="text" data-validate="numeric" name="numeric-validation" />
-    <input type="checkbox" data-validate="required" name="checkbox-validation" />
-</form>
+    <form>
+        <input type="text" data-validate="required" name="required-validation" />
+        <input type="text" data-validate="email" name="email-validation" />
+        <input type="text" data-validate="url" name="url-validation" />
+        <input type="text" data-validate="numeric" name="numeric-validation" />
+        <input type="checkbox" data-validate="required" name="checkbox-validation" />
+    </form>
 
-Javascript:
-
-<script type="text/javascript">
-    $('form').validate();
-</script>
+    <script type="text/javascript">
+        $('form').validate();
+    </script>
 
 **Usage with custom callback functions:**
-HTML:
 
 The 'data-validate' attribute is required
-<form>
-    <input type="text" data-validate="required" name="required-validation" />
-    <input type="text" data-validate="email" name="email-validation" />
-    <input type="text" data-validate="url" name="url-validation" />
-    <input type="text" data-validate="numeric" name="numeric-validation" />
-    <input type="checkbox" data-validate="required" name="checkbox-validation" />
-</form>
+    <form>
+        <input type="text" data-validate="required" name="required-validation" />
+        <input type="text" data-validate="email" name="email-validation" />
+        <input type="text" data-validate="url" name="url-validation" />
+        <input type="text" data-validate="numeric" name="numeric-validation" />
+        <input type="checkbox" data-validate="required" name="checkbox-validation" />
+    </form>
 
-Javascript:
-
-
-<script type="text/javascript">
-    $('form').validate({
-        fieldError:function() {
-            //Called when validation fails on an individual field
-        },
-        error:function() {
-            //Called when validation completes and validation errors are found
-        },
-        success:function(errors) {
-            //Called when validation completes and no validation errors are found
-        }
-    });
-</script>
+    <script type="text/javascript">
+        $('form').validate({
+            fieldError:function() {
+                //Called when validation fails on an individual field
+            },
+            error:function() {
+                //Called when validation completes and validation errors are found
+            },
+            success:function(errors) {
+                //Called when validation completes and no validation errors are found
+            }
+        });
+    </script>
 
 ##License 
 
