@@ -12,7 +12,6 @@
 HTML:
 
 The 'data-validate' attribute is required
-```
 <form>
     <input type="text" data-validate="required" name="required-validation" />
     <input type="text" data-validate="email" name="email-validation" />
@@ -20,18 +19,17 @@ The 'data-validate' attribute is required
     <input type="text" data-validate="numeric" name="numeric-validation" />
     <input type="checkbox" data-validate="required" name="checkbox-validation" />
 </form>
-```
 
 Javascript:
-```javascript
-$('form').validate();
-```
+
+<script type="text/javascript">
+    $('form').validate();
+</script>
 
 **Usage with custom callback functions:**
 HTML:
 
 The 'data-validate' attribute is required
-```
 <form>
     <input type="text" data-validate="required" name="required-validation" />
     <input type="text" data-validate="email" name="email-validation" />
@@ -39,22 +37,23 @@ The 'data-validate' attribute is required
     <input type="text" data-validate="numeric" name="numeric-validation" />
     <input type="checkbox" data-validate="required" name="checkbox-validation" />
 </form>
-```
 
 Javascript:
-```javascript
-$('form').validate({
-    fieldError:function() {
-        //Called when validation fails on an individual field
-    },
-    error:function() {
-        //Called when validation completes and validation errors are found
-    },
-    success:function(errors) {
-        //Called when validation completes and no validation errors are found
-    }
-});
-```
+
+
+<script type="text/javascript">
+    $('form').validate({
+        fieldError:function() {
+            //Called when validation fails on an individual field
+        },
+        error:function() {
+            //Called when validation completes and validation errors are found
+        },
+        success:function(errors) {
+            //Called when validation completes and no validation errors are found
+        }
+    });
+</script>
 
 ##License 
 
