@@ -12,7 +12,7 @@
 HTML:
 
 The 'data-validate' attribute is required
-```html
+```
 <form>
     <input type="text" data-validate="required" name="required-validation" />
     <input type="text" data-validate="email" name="email-validation" />
@@ -31,7 +31,7 @@ $('form').validate();
 HTML:
 
 The 'data-validate' attribute is required
-```html
+```
 <form>
     <input type="text" data-validate="required" name="required-validation" />
     <input type="text" data-validate="email" name="email-validation" />
