@@ -18,8 +18,8 @@
     </style>
 </head>
 <body>
-    <h1>jQuery Validation Plugin</h1>
-    <form id="test_form" type="post" action="">
+    <h1>jQuery Form Validation Plugin</h1>
+    <form id="test_form" type="post" action="success.html">
         <p><label for="name">Full Name: </label><input type="text" data-validate="required" name="name" value="" id="name" /><span class="helper">*Required validation</span></p>
         <p><label for="email">Email Address: </label><input type="text" data-validate="email" name="email" value="" id="email" /><span class="helper">*Email validation</span></p>
         <p><label for="url">Website: </label><input type="text" data-validate="url" name="url" value="" id="url" /><span class="helper">*URL validation</span></p>
@@ -32,13 +32,10 @@
     <script src="../easy-form-validator.js"></script>
     <script>
         $(document).ready(function(){
-            $('#test_form').submit(function(e){
-                e.preventDefault();
-                $(this).validate({
-                    invalid:function(){
-                        $(this).addClass('error');
-                    }
-                });
+            $('#test_form').validate({
+                fieldError:function(){
+                    $(this).addClass('error');
+                }
             });
         });
     </script>

@@ -1,15 +1,62 @@
-# Easy HTML Form Validator
+#Easy HTML Form Validator
 *A jQuery Plugin*
 
 ##Description
-**Author**: Adam Magana &lt;adammagana@gmail.com&gt;  
-**Last Edit**: June 7th, 2011  
+**Author**: Adam Magaña &lt;adammagana@gmail.com&gt;  
+**Last Edit**: June 10th, 2011  
 **Version**: 0.0.1
 
 ##Usage
-* Coming Soon!
 
-## License 
+**Basic usage:**
+HTML:
+
+The 'data-validate' attribute is required
+```html
+<form>
+    <input type="text" data-validate="required" name="required-validation" />
+    <input type="text" data-validate="email" name="email-validation" />
+    <input type="text" data-validate="url" name="url-validation" />
+    <input type="text" data-validate="numeric" name="numeric-validation" />
+    <input type="checkbox" data-validate="required" name="checkbox-validation" />
+</form>
+```
+
+Javascript:
+```javascript
+$('form').validate();
+```
+
+**Usage with custom callback functions:**
+HTML:
+
+The 'data-validate' attribute is required
+```html
+<form>
+    <input type="text" data-validate="required" name="required-validation" />
+    <input type="text" data-validate="email" name="email-validation" />
+    <input type="text" data-validate="url" name="url-validation" />
+    <input type="text" data-validate="numeric" name="numeric-validation" />
+    <input type="checkbox" data-validate="required" name="checkbox-validation" />
+</form>
+```
+
+Javascript:
+```javascript
+$('form').validate({
+    fieldError:function() {
+        //Called when validation fails on an individual field
+    },
+    error:function() {
+        //Called when validation completes and validation errors are found
+    },
+    success:function(errors) {
+        //Called when validation completes and no validation errors are found
+    }
+});
+```
+
+##License 
 
 (The MIT License)
 
