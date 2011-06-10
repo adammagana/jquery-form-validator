@@ -20,7 +20,9 @@ The 'data-validate' attribute is required
     </form>
 
     <script type="text/javascript">
-        $('form').validate();
+        $(document).ready(function(){
+            $('form').validate();
+        });
     </script>
 
 **Usage with custom callback functions:**
@@ -35,16 +37,18 @@ The 'data-validate' attribute is required
     </form>
 
     <script type="text/javascript">
-        $('form').validate({
-            fieldError:function() {
-                //Called when validation fails on an individual field
-            },
-            error:function() {
-                //Called when validation completes and validation errors are found
-            },
-            success:function(errors) {
-                //Called when validation completes and no validation errors are found
-            }
+        $(document).ready(function(){
+            $('form').validate({
+                fieldError:function() {
+                    //Called when validation fails on an individual field
+                },
+                error:function() {
+                    //Called when validation completes and validation errors are found
+                },
+                success:function(errors) {
+                    //Called when validation completes and no validation errors are found
+                }
+            });
         });
     </script>
 
