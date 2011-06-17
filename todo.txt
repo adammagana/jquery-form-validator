@@ -1,6 +1,4 @@
 Goals:
  * alpha validation
  * password validation (matching passwords)
- * logic for handling error messages
- * Adjust file naming conventions to match other jQuery plugins
  * Create a minified version of the plugin

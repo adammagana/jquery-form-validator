@@ -3,7 +3,7 @@
 
 ##Description
 **Author**: Adam Magaña &lt;adammagana@gmail.com&gt;  
-**Last Edit**: June 10th, 2011  
+**Last Edit**: June 17th, 2011  
 **Version**: 0.0.1
 
 ##Usage
@@ -42,10 +42,10 @@ The 'data-validate' attribute is required
                 fieldError:function() {
                     //Called when validation fails on an individual field
                 },
-                error:function() {
+                error:function(errors) {
                     //Called when validation completes and validation errors are found
                 },
-                success:function(errors) {
+                success:function() {
                     //Called when validation completes and no validation errors are found
                 }
             });
