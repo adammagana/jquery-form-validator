@@ -5,7 +5,7 @@
  * @since May 25th, 2011
  * @see http://docs.jquery.com/Plugins/Authoring
  */
-(function($){
+(function($, undefined){
     
     $.fn.validate = function(options) {
         /**
