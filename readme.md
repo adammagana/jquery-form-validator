@@ -3,7 +3,7 @@
 
 ##Description
 **Author**: Adam Magaña &lt;adammagana@gmail.com&gt;  
-**Last Edit**: June 17th, 2011  
+**Last Edit**: March 1st, 2012 
 **Version**: 0.0.1
 
 ##Usage
@@ -11,6 +11,7 @@
 **Basic usage:**
 
 The 'data-validate' attribute is required
+
     <form>
         <input type="text" data-validate="required" name="required-validation" />
         <input type="text" data-validate="email" name="email-validation" />
@@ -28,6 +29,7 @@ The 'data-validate' attribute is required
 **Usage with custom callback functions:**
 
 The 'data-validate' attribute is required
+
     <form>
         <input type="text" data-validate="required" name="required-validation" />
         <input type="text" data-validate="email" name="email-validation" />

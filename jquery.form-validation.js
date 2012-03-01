@@ -65,7 +65,7 @@
                 * Else prevent the form from submitting and call the 'settings.error' function
                 */ 
                 if(invalidFields.length === 0) {
-                    e.preventDefault();
+                    //e.preventDefault();
                     settings.success.apply(this);
                 }else {
                     e.preventDefault();
@@ -78,7 +78,7 @@
     /**
     * Object Literal that defines the validation types
     * 
-    * Modeled after cssHooks, each validation type has two properties: a 'set' property and a 'message' property.
+    * Modeled after jQuery cssHooks, each validation type has two properties: a 'set' property and a 'message' property.
     * The 'set' property is the actual function that validates a field. The 'message' property is the error message that
     * is returned to the 'settings.fieldError' function when validation fails.
     */
@@ -89,7 +89,7 @@
                 switch(this.tagName) {
                     case 'INPUT':
                         if($(this).attr('type') == 'text') {
-                            $.trim(val);
+                            val = $.trim(val);
                             if(val === '') {
                                 return false;
                             }else {
@@ -109,7 +109,12 @@
         
         alpha:{
             set:function(val) {
-                return true;
+                var regexp = /^[a-zA-Z]+[a-zA-Z ]+[a-zA-Z]+$/;
+                if(regexp.test(val)) {
+                    return true;
+                }else {
+                    return false;
+                }
             },
             message:'This field can contain only letters.'
         },
