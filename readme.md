@@ -3,7 +3,7 @@
 
 ##Description
 **Author**: Adam Magaña &lt;adammagana@gmail.com&gt;  
-**Last Edit**: March 1st, 2012 
+**Last Edit**: March 1st, 2012  
 **Version**: 0.0.1
 
 ##Usage
