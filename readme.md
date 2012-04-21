@@ -10,50 +10,51 @@
 
 **Basic usage:**
 
-The 'data-validate' attribute is required
+The `data-validate` attribute on input fields is required.
+```html
+<form>
+    <input type="text" data-validate="required" name="required-validation" />
+    <input type="text" data-validate="email" name="email-validation" />
+    <input type="text" data-validate="url" name="url-validation" />
+    <input type="text" data-validate="numeric" name="numeric-validation" />
+    <input type="checkbox" data-validate="required" name="checkbox-validation" />
+</form>
 
-    <form>
-        <input type="text" data-validate="required" name="required-validation" />
-        <input type="text" data-validate="email" name="email-validation" />
-        <input type="text" data-validate="url" name="url-validation" />
-        <input type="text" data-validate="numeric" name="numeric-validation" />
-        <input type="checkbox" data-validate="required" name="checkbox-validation" />
-    </form>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('form').validate();
-        });
-    </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('form').validate();
+    });
+</script>
+```
 
 **Usage with custom callback functions:**
 
-The 'data-validate' attribute is required
+The `data-validate` attribute on input fields is required.
+```html
+<form>
+    <input type="text" data-validate="required" name="required-validation" />
+    <input type="text" data-validate="email" name="email-validation" />
+    <input type="text" data-validate="url" name="url-validation" />
+    <input type="text" data-validate="numeric" name="numeric-validation" />
+    <input type="checkbox" data-validate="required" name="checkbox-validation" />
+</form>
 
-    <form>
-        <input type="text" data-validate="required" name="required-validation" />
-        <input type="text" data-validate="email" name="email-validation" />
-        <input type="text" data-validate="url" name="url-validation" />
-        <input type="text" data-validate="numeric" name="numeric-validation" />
-        <input type="checkbox" data-validate="required" name="checkbox-validation" />
-    </form>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('form').validate({
-                fieldError:function() {
-                    //Called when validation fails on an individual field
-                },
-                error:function(errors) {
-                    //Called when validation completes and validation errors are found
-                },
-                success:function() {
-                    //Called when validation completes and no validation errors are found
-                }
-            });
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('form').validate({
+            fieldError:function() {
+                //Called when validation fails on an individual field
+            },
+            error:function(errors) {
+                //Called when validation completes and validation errors are found
+            },
+            success:function() {
+                //Called when validation completes and no validation errors are found
+            }
         });
-    </script>
-
+    });
+</script>
+```
 ##License 
 
 (The MIT License)
